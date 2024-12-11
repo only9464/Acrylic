@@ -191,7 +191,7 @@ func <新应用名>(a, b int) int {
 
 ```
 
-### 2.3在[/AppManager.go](./AppManager.go)文件中添加你的应用的app实例~~（实际上就是加一行）~~：
+### 2.3在[/AppManager.go](./AppManager.go)文件中添加你的应用的app实例(~~实际上就是加一行~~)：
 
 ```go
 // 创建新的AppManager并注册所有app
