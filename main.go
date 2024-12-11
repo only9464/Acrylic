@@ -17,18 +17,20 @@ func main() {
 	appManager := NewAppManager()
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:            "GlideWay",
+		Title:            "Acrylic",
 		Width:            1024,
 		Height:           768,
 		Assets:           assets,
 		BackgroundColour: &options.RGBA{R: 0, G: 0, B: 0, A: 0},
 		OnStartup:        appManager.StartupHandler,
-		Bind:             appManager.GetBindings(),
+		Bind: []interface{}{
+			appManager, // 绑定 AppManager 实例
+		},
 		Windows: &windows.Options{
 			WebviewIsTransparent: true,
 			WindowIsTranslucent:  true,
 			Theme:                0,
-			BackdropType:         windows.Acrylic, // 使用亚克力效果
+			BackdropType:         windows.Acrylic,
 		},
 		WindowStartState: options.Maximised,
 	})
