@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 
+	"github.com/wailsapp/wails/v2/pkg/options/linux"
 	"github.com/wailsapp/wails/v2/pkg/options/windows"
 
 	"github.com/wailsapp/wails/v2"
@@ -11,6 +12,9 @@ import (
 
 //go:embed all:frontend/dist
 var assets embed.FS
+
+//go:embed assets/icon.png
+var appIcon []byte
 
 func main() {
 	// Create an instance of the app structure
@@ -23,9 +27,7 @@ func main() {
 		Assets:           assets,
 		BackgroundColour: &options.RGBA{R: 0, G: 0, B: 0, A: 0},
 		OnStartup:        appManager.StartupHandler,
-		Bind: []interface{}{
-			appManager, // 绑定 AppManager 实例
-		},
+		Bind:             appManager.GetBindings(),
 		Windows: &windows.Options{
 			WebviewIsTransparent: true,
 			WindowIsTranslucent:  true,
@@ -33,6 +35,12 @@ func main() {
 			BackdropType:         windows.Acrylic,
 		},
 		WindowStartState: options.Maximised,
+		Linux: &linux.Options{
+			WindowIsTranslucent: true,
+			WebviewGpuPolicy:    linux.WebviewGpuPolicyAlways,
+			ProgramName:         "Acrylic",
+			Icon:                appIcon,
+		},
 	})
 	if err != nil {
 		println("Error:", err.Error())
