@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <h1>Acrylic第一个界面</h1>
+    <h1>Acrylic第2个界面</h1>
     <!-- 输入框，用于接受用户输入的两个整数 -->
     <div>
       <input type="number" v-model.number="numberA" placeholder="Enter number A" />
