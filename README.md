@@ -9,26 +9,37 @@ Acrylic为Wails框架的Vue模板，用于开发桌面应用程序，主要主�
 
 **以下依赖按照顺序逐个安装即可：**
 
-  <a href="https://nodejs.org/">
-    <img src="https://img.shields.io/badge/Node.js-v20.12.2-green?logo=node.js" alt="Node">
-  </a>
-<br>
-<a href="https://www.npmjs.com/">
-  <img src="https://img.shields.io/badge/npm-v9.0.0-red?logo=npm" alt="npm">
-</a>
-<br>
-  <a href="https://vuejs.org/">
-    <img src="https://img.shields.io/badge/dynamic/json?url=https://ghproxy.mioe.me/https://raw.githubusercontent.com/only9464/GlideWay/main/frontend/package.json&query=$.dependencies.vue&label=Vue&color=4FC08D&logo=vue.js" alt="Vue">
-  </a>
-<br>
-  <a href="https://go.dev/">
-    <img src="https://img.shields.io/github/go-mod/go-version/only9464/GlideWay?logo=go&label=Golang&color=00ADD8" alt="Go">
-  </a>
-<br>
-  <a href="https://wails.io">
-    <img src="https://img.shields.io/github/v/release/wailsapp/wails?label=Wails&color=red&logo=wails" alt="Wails">
-  </a>
-<br>
+- [![Go](https://img.shields.io/github/go-mod/go-version/only9464/GlideWay?logo=go&label=Golang&color=00ADD8)](https://go.dev/)
+- [![Wails](https://img.shields.io/github/v/release/wailsapp/wails?label=Wails&color=red&logo=wails)](https://wails.io)
+- [![Node](https://img.shields.io/badge/Node.js-v20.12.2-green?logo=node.js)](https://nodejs.org/)
+- [![npm](https://img.shields.io/badge/npm-v9.0.0-red?logo=npm)](https://www.npmjs.com/)
+- [![Vue](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/only9464/GlideWay/main/frontend/package.json&query=$.dependencies.vue&label=Vue&color=4FC08D&logo=vue.js)](https://vuejs.org/)
+
+### Windows
+
+暂无
+
+### Linux
+
+- libgtk-3-dev 
+- libwebkit2gtk-4.0-dev 
+- libglib2.0-dev
+
+所需执行命令(仅在ubuntu-20.04.6-amd64测试通过，其余自测)：
+
+```bash
+sudo apt update
+sudo apt-get install libgtk-3-dev libwebkit2gtk-4.0-dev libglib2.0-dev
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH
+```
+
+> [!NOTE]
+>
+> 新版`Linux`安装`libwebkit2gtk-4.0-dev`编译应用时需要增加 `-tags webkit2_40`
+
+### Mac
+
+暂无
 
 ## 2.调试运行
 
