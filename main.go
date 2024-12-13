@@ -4,6 +4,7 @@ import (
 	"embed"
 
 	"github.com/wailsapp/wails/v2/pkg/options/linux"
+	"github.com/wailsapp/wails/v2/pkg/options/mac"
 	"github.com/wailsapp/wails/v2/pkg/options/windows"
 
 	"github.com/wailsapp/wails/v2"
@@ -40,6 +41,12 @@ func main() {
 			WebviewGpuPolicy:    linux.WebviewGpuPolicyAlways,
 			ProgramName:         "Acrylic",
 			Icon:                appIcon,
+		},
+		Mac: &mac.Options{
+			// TitleBar:             mac.TitleBarHiddenInset(),
+			WindowIsTranslucent:  true,
+			WebviewIsTransparent: true,
+			Appearance:           mac.NSAppearanceNameAccessibilityHighContrastVibrantLight,
 		},
 	})
 	if err != nil {
