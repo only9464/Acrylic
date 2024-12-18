@@ -7,14 +7,7 @@
       <div class="setting-option">
         <span class="option-label">当前版本号：</span>
         <div class="option-control">
-            <span>1.0.0</span>
-        </div>
-      </div>
-      <!-- 选项-1 -->
-      <div class="setting-option">
-        <span class="option-label">最新版本号：</span>
-        <div class="option-control">
-            <span>1.0.0</span>
+            <span>1.0.0( 最新版本：{{ latestVersion }} )</span>
         </div>
       </div>
 
@@ -52,49 +45,57 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-/**
- * 页面加载时执行的函数
- */
-const executeOnLoad = () => {
-  console.log('设置页面已加载，执行初始化函数')
-  window.go.Settings.App.Settings(1, 2)
-  // 在这里添加需要执行的逻辑
-  // 例如，初始化数据、调用 API、设置状态等
+// 定义响应式变量
+const latestVersion = ref('')
+
+// 定义执行加载时的异步函数
+const executeOnLoad = async () => {
+  try {
+    console.log('设置页面已加载，执行初始化函数')
+    
+    // 调用 Go 函数并等待其完成
+    await window.go.Settings.App.Settings(1, 2)
+    
+    // 异步获取最新的版本号，并设置到 latestVersion
+    const version = await window.go.Settings.App.Get_latest_version_code()
+    latestVersion.value = version
+
+    console.log("window.go.Settings.App", window.go.Settings.App)
+    console.log("latestVersion", latestVersion.value)
+    
+    // 其他初始化逻辑
+  } catch (error) {
+    console.error('执行初始化函数时出错:', error)
+  }
 }
 
 onMounted(() => {
   executeOnLoad()
 })
 
-// 响应式数据
+// 其他响应式数据和方法
 const downloadPath = ref('')
 const userDescription = ref('')
 
-/**
- * 处理“开启通知”开关
- */
 const toggleNotifications = (event) => {
   const isEnabled = event.target.checked
   console.log(`通知已${isEnabled ? '开启' : '关闭'}`)
   // 添加处理逻辑
 }
 
-/**
- * 处理“选择下载路径”输入
- */
 const handleDownloadPath = () => {
   console.log(`下载路径: ${downloadPath.value}`)
   // 添加处理逻辑
 }
 
-/**
- * 处理“用户描述”输入
- */
 const handleUserDescription = () => {
   console.log(`用户描述: ${userDescription.value}`)
   // 添加处理逻辑
 }
 </script>
+
+
+
 
 <style scoped>
 .main-container {

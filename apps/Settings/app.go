@@ -2,6 +2,7 @@ package Settings
 
 import (
 	"context"
+	"fmt"
 )
 
 // App struct
@@ -24,4 +25,14 @@ func (a *App) Startup(ctx context.Context) {
 
 func (s *App) Settings(a, b int) int {
 	return settings(a, b)
+}
+
+func (s *App) Check_now_is_latest(currentVersion, latestVersion string) bool {
+	return check_now_is_latest(currentVersion, latestVersion)
+}
+
+func (s *App) Get_latest_version_code() string {
+	latestVersion := get_latest_version_code()
+	fmt.Println("latestVersion", latestVersion)
+	return latestVersion
 }
