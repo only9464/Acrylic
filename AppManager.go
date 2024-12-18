@@ -3,6 +3,7 @@ package main
 import (
 	"Acrylic/apps/First"
 	"Acrylic/apps/Second"
+	"Acrylic/apps/Settings"
 	"context"
 )
 
@@ -13,6 +14,7 @@ func NewAppManager() *AppManager {
 			NewApp(),
 			First.NewApp(),
 			Second.NewApp(),
+			Settings.NewApp(),
 			// 在这里添加新的app即可(嘻嘻)*****
 		},
 	}

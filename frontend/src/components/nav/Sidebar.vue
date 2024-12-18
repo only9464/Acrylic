@@ -3,8 +3,15 @@
     <div class="sidebar acrylic-effect">
       <div class="menu-container">
         <ul>
+
           <li>
             <router-link to="/" class="nav-link">
+              <span>首页</span>
+            </router-link>
+          </li>
+
+          <li>
+            <router-link to="/First" class="nav-link">
               <span>第一个界面</span>
             </router-link>
           </li>
@@ -20,6 +27,17 @@
           </li> -->
         </ul>
       </div>
+      <div class="bottom-menu">
+        <ul>
+
+          <li>
+            <router-link to="/setting" class="nav-link">
+              <span>设置</span>
+            </router-link>
+          </li>
+
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -29,9 +47,9 @@
 <style scoped>
 .sidebar-container {
   position: fixed;
-  top: 20px;  /* 增加顶部间距 */
-  left: 20px;  /* 增加左侧间距 */
-  bottom: 20px;  /* 增加底部间距 */
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
   width: 200px;
   z-index: 100;
 }
@@ -47,6 +65,10 @@
 .menu-container {
   padding-top: 20px;
   flex-grow: 1;
+}
+
+.bottom-menu {
+  padding-bottom: 20px;
 }
 
 .acrylic-effect {
@@ -72,7 +94,7 @@
 }
 
 .nav-link {
-  color: #000000; /* 更深的蓝灰色 */
+  color: #000000;
   text-decoration: none;
   padding: 12px 24px;
   display: block;
@@ -80,9 +102,9 @@
   transition: all 0.3s ease;
   margin: 0 8px;
   border-radius: 8px;
-  font-weight: 600; /* 加粗 */
+  font-weight: 600;
   letter-spacing: 0.5px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3); /* 白色文字阴影 */
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.3),
@@ -96,7 +118,7 @@
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.3)
   );
-  color: #4eb157; /* 悬停时更深的颜色 */
+  color: #4eb157;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
@@ -148,7 +170,7 @@
   }
   
   .nav-link {
-    color: rgba(255, 255, 255, 0.9); /* 深色模式下使用白色 */
+    color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     background: linear-gradient(
       90deg,

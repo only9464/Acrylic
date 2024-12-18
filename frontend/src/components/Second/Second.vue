@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div class="Second-container">
     <h1>Acrylic第2个界面</h1>
     <!-- 输入框，用于接受用户输入的两个整数 -->
     <div>
