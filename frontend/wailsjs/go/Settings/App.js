@@ -6,8 +6,24 @@ export function Check_now_is_latest(arg1, arg2) {
   return window['go']['Settings']['App']['Check_now_is_latest'](arg1, arg2);
 }
 
+export function Download_config_file() {
+  return window['go']['Settings']['App']['Download_config_file']();
+}
+
+export function Get_config_file_path() {
+  return window['go']['Settings']['App']['Get_config_file_path']();
+}
+
+export function Get_current_program_path() {
+  return window['go']['Settings']['App']['Get_current_program_path']();
+}
+
 export function Get_latest_version_code() {
   return window['go']['Settings']['App']['Get_latest_version_code']();
+}
+
+export function Get_version_code() {
+  return window['go']['Settings']['App']['Get_version_code']();
 }
 
 export function Settings(arg1, arg2) {

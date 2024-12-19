@@ -118,7 +118,7 @@
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.3)
   );
-  color: #4eb157;
+  color: #1e8fa3;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
@@ -132,7 +132,7 @@
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.4)
   );
-  color: #4eb157;
+  color: #1e8fa3;
   font-weight: 700;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.01);
 }
