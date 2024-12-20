@@ -60,11 +60,12 @@ func Update() {
 	}
 	defer batchFile.Close()
 
-	// 批处理文件内容：替换原程序并启动新程序
+	// 批处理文件内容：替换原程序并启动新程序，同时删除自己
 	batchContent := fmt.Sprintf(`@echo off
 timeout /t 2
 move /y "%s" "%s"
 start "" "%s"
+start "" cmd /c del "%%~f0"
 exit`, tempExePath, exePath, exePath)
 
 	_, err = batchFile.WriteString(batchContent)

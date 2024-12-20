@@ -18,18 +18,10 @@
         <div class="option-control">
           <span>{{ currentVersion }}</span>
           <div v-if="!is_latest_version">
-            <span>(发现新版本：{{ latestVersion }})</span>
-            <el-button type="primary" size="small" color="#1e8fa3" @click="openDownloadLink">立即前往下载</el-button>
+            <span>(发现新版本：{{ latestVersion }}
+                          <el-button type="primary" size="small" color="#1e8fa3" @click="UpdateAndRestart">下载并更新重启</el-button>
+              )</span>
           </div>
-        </div>
-      </div>
-
-      <!-- 选项-1 -->
-      <div class="setting-option">
-        <span class="option-label">(更新)当前版本号：</span>
-        <div class="option-control">
-          <span>{{ currentVersion }}</span>
-            <el-button type="primary" size="small" color="#1e8fa3" @click="UpdateAndRestart">下载并安装</el-button>
         </div>
       </div>
 
