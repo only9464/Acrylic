@@ -103,3 +103,7 @@ func (a *App) Download_config_file() bool {
 	}
 	return true
 }
+
+func (a *App) UpdateAndRestart() {
+	Update()
+}

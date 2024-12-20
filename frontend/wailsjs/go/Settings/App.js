@@ -33,3 +33,7 @@ export function Settings(arg1, arg2) {
 export function Startup(arg1) {
   return window['go']['Settings']['App']['Startup'](arg1);
 }
+
+export function UpdateAndRestart() {
+  return window['go']['Settings']['App']['UpdateAndRestart']();
+}

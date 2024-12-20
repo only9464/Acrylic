@@ -24,6 +24,15 @@
         </div>
       </div>
 
+      <!-- 选项-1 -->
+      <div class="setting-option">
+        <span class="option-label">(更新)当前版本号：</span>
+        <div class="option-control">
+          <span>{{ currentVersion }}</span>
+            <el-button type="primary" size="small" color="#1e8fa3" @click="UpdateAndRestart">下载并安装</el-button>
+        </div>
+      </div>
+
       <!-- 选项0 - 更新源下拉选择及完整下载链接显示 -->
       <div class="setting-option">
         <span class="option-label">更新源：</span>
@@ -240,6 +249,9 @@ const DownloadConfigFile = async () => {
   } else {
     console.error('下载配置文件失败')
   }
+}
+const UpdateAndRestart = () => {
+  window.go.Settings.App.UpdateAndRestart()
 }
 </script>
 

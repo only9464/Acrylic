@@ -17,3 +17,5 @@ export function Get_version_code():Promise<string>;
 export function Settings(arg1:number,arg2:number):Promise<number>;
 
 export function Startup(arg1:context.Context):Promise<void>;
+
+export function UpdateAndRestart():Promise<void>;
