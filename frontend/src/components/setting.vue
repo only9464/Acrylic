@@ -132,8 +132,7 @@ const executeOnLoad = async () => {
     const current_program_path = await window.go.Settings.App.Get_current_program_path()
     currentProgramPath.value = current_program_path
     // 获取配置文件路径
-    const config_file_path = await window.go.Settings.App.Get_config_file_path()
-    configFilePath.value = config_file_path
+    configFilePath.value = await window.go.Settings.App.Get_config_file_path()
     // 异步获取当前版本号
     const current_version_code = await window.go.Settings.App.Get_version_code()
     currentVersion.value = current_version_code
@@ -227,11 +226,19 @@ const OpenFileExplorer = (filePath) => {
     window.open(filePath, '_blank')
   }
 }
-const DownloadConfigFile = () => {
-  const result = window.go.Settings.App.Download_config_file()
+const DownloadConfigFile = async () => {
+  const result = await window.go.Settings.App.Download_config_file()
   if (result) {
-    window.runtime.WindowReloadApp()
-    executeOnLoad()
+    try {
+      // 等待配置文件路径的 Promise 完成
+      const path = await window.go.Settings.App.Get_config_file_path()
+      configFilePath.value = path
+      console.log(`配置文件下载成功，路径: ${configFilePath.value}`)
+    } catch (error) {
+      console.error('获取配置文件路径时出错:', error)
+    }
+  } else {
+    console.error('下载配置文件失败')
   }
 }
 </script>

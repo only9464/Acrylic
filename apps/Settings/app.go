@@ -74,7 +74,7 @@ func (a *App) Get_config_file_path() string {
 
 func (a *App) Download_config_file() bool {
 	// 将 "https://ghproxy.mioe.me/https://raw.githubusercontent.com/only9464/Acrylic/master/build/bin/config.json" 下载到当前目录下并保存成config.json
-	url := "https://ghproxy.mioe.me/https://raw.githubusercontent.com/only9464/Acrylic/master/build/bin/config.json"
+	url := "https://ghproxy.mioe.me/https://raw.githubusercontent.com/only9464/Acrylic/master/config.json"
 	response, err := http.Get(url)
 	if err != nil {
 		fmt.Println("Error occurred:", err)
@@ -89,7 +89,7 @@ func (a *App) Download_config_file() bool {
 	}
 	defer response.Body.Close()
 	// 将下载到的内容写入到当前目录下的config.json文件中
-	filePath := "./config.json"
+	filePath := filepath.Join(a.Get_current_program_path(), "config.json")
 	file, err := os.Create(filePath)
 	if err != nil {
 		fmt.Println("Error occurred:", err)
