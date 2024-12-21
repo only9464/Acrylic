@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 )
 
-const version_code = "8.8.8"
+const version_code = "8.8.7"
 
 // App struct
 type App struct {
